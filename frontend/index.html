@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Talk2Books 📚 | Multilingual RAG</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      margin: 0;
+      padding: 40px;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #1e293b;
+      padding: 25px 35px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+    h1 {
+      color: #22c55e;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .sub {
+      color: #94a3b8;
+      font-size: 0.8em;
+    }
+    button {
+      background-color: #22c55e;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover {
+      background-color: #16a34a;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+      background: #334155;
+      color: #f8fafc;
+    }
+    #response {
+      white-space: pre-wrap;
+      background: #0f172a;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📖 Talk2Books <span class="sub">Made by Sanya</span></h1>
+
+    <!-- Step 1: Upload Section -->
+    <div id="upload-section">
+      <h3>Step 1️⃣ — Upload up to 5 files</h3>
+      <input type="file" id="fileInput" multiple accept=".txt,.pdf,.docx" />
+      <button onclick="uploadFiles()">Upload</button>
+      <p id="uploadStatus"></p>
+    </div>
+
+    <!-- Step 2: Language Selection -->
+    <div id="lang-section" style="display:none;">
+      <h3>Step 2️⃣ — Choose Languages</h3>
+      <label>Question Language:</label>
+      <select id="questionLang">
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="pa">Punjabi</option>
+      </select>
+
+      <label>Answer Language:</label>
+      <select id="answerLang">
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="pa">Punjabi</option>
+      </select>
+    </div>
+
+    <!-- Step 3: Ask Question -->
+    <div id="chat-section" style="display:none;">
+      <h3>Step 3️⃣ — Ask Your Question</h3>
+      <textarea id="question" placeholder="Type your question..." rows="3"></textarea>
+      <button onclick="askQuestion()">Ask</button>
+      <div id="response"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
